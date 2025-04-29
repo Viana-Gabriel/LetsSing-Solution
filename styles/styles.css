@@ -1,0 +1,68 @@
+body {
+  background: linear-gradient(180deg, #6C63FF, #FFFFFF);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #2b2d42;
+  color: white;
+}
+
+.navbar .logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.container {
+  margin: 20px;
+  text-align: center;
+}
+
+.signature-box {
+  border: 1px solid #ccc;
+  margin: 20px auto;
+  width: 600px;
+  height: 200px;
+  position: relative;
+}
+
+canvas {
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #2b2d42;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5a5d74;
+}

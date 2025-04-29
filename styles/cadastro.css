@@ -1,0 +1,95 @@
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  background: url(../Assets/v904-nunny-012.jpg) no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.input-group,
+.btn {
+  height: 50px;
+}
+
+.input-group {
+  border: 1px solid #6429FF;
+  border-radius: 5px;
+}
+
+.input-group i {
+  color: #6429FF;
+}
+
+.btn {
+  background: #6429FF;
+  color: white;
+}
+
+.logo {
+  text-align: center;
+  margin: auto;
+  max-width: 350px;
+}
+
+.logo img {
+  width: 80%;
+}
+
+.container {
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 500px;
+}
+
+.input-group input:focus {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+}
+
+a {
+  color: #33336D;
+}
+
+.progress {
+  height: 5px;
+  background-color: #e9ecef;
+}
+
+.progress-bar {
+  background: #6429FF;
+}
+#preview-image {
+  object-fit: cover;
+  padding: 5px;
+  width: 200px;
+}
+
+.w-45 {
+  width: 48%;
+}
+
+#camera-preview {
+  width: 100%;
+  height: auto;
+}
+
+#camera-container {
+  position: relative;
+}
+
+
+@media screen and (min-width: 1000px) {
+  .container {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.514);
+  }
+
+  .btn{
+    font-size: 20px;
+  }
+}
