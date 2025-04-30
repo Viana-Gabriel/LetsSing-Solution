@@ -1,0 +1,35 @@
+@import './styles.css';
+main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signature-box {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.signature-box canvas{
+  max-width: 400px;
+}
+
+.signature-box textarea:focus{
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+}
+.signature-box textarea{
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+}
+
+.container{
+  max-width: 800px;
+}
+
