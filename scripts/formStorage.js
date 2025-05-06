@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        const inputs = form.querySelectorAll('input[name]:not([type="file"])');
+        const inputs = form.querySelectorAll("input[name]");
 
         inputs.forEach((input) => {
             localStorage.setItem(input.name, input.value);

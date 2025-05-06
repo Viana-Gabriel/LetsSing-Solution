@@ -19,11 +19,39 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     document.getElementById("next-1").addEventListener("click", () => {
+        const nome = document
+            .querySelector('[name="NomeCompleto"]')
+            .value.trim();
+        const email = document.querySelector('[name="E-mail"]').value.trim();
+        const telefone = document
+            .querySelector('[name="NumeroTelefone"]')
+            .value.trim();
+
+        if (!nome || !email || !telefone) {
+            alert("Por favor, preencha todos os campos antes de continuar.");
+            return;
+        }
+
         currentStep = 1;
         updateSteps();
     });
 
     document.getElementById("next-2").addEventListener("click", () => {
+        const senha = document.querySelector('[name="Senha"]').value.trim();
+        const confirmarSenha = document
+            .querySelector('[name="ConfirmarSenha"]')
+            .value.trim();
+
+        if (!senha || !confirmarSenha) {
+            alert("Preencha a senha e a confirmação.");
+            return;
+        }
+
+        if (senha !== confirmarSenha) {
+            alert("As senhas não coincidem.");
+            return;
+        }
+
         currentStep = 2;
         updateSteps();
     });
@@ -59,10 +87,13 @@ fileInput.addEventListener("change", (event) => {
     if (file) {
         const reader = new FileReader();
         reader.onload = (e) => {
-            previewImage.src = e.target.result; // Atualiza a pré-visualização
-            stopCamera(); // Desliga a câmera se estiver ativa
-            previewImage.classList.remove("d-none"); // Exibe a imagem
-            cameraContainer.classList.add("d-none"); // Esconde o preview da câmera
+            const imageDataUrl = e.target.result;
+            previewImage.src = imageDataUrl;
+            stopCamera();
+            previewImage.classList.remove("d-none");
+            cameraContainer.classList.add("d-none");
+
+            localStorage.setItem("imgDocumento", imageDataUrl); // salva no localStorage
         };
         reader.readAsDataURL(file);
     }
@@ -77,8 +108,8 @@ cameraButton.addEventListener("click", async () => {
             });
             cameraPreview.srcObject = cameraStream;
             cameraContainer.classList.remove("d-none");
-            previewImage.classList.add("d-none"); // Esconde o preview de imagem
-            previewImage.src = "./Assets/default-avatar.png"; // Reseta a pré-visualização
+            previewImage.classList.add("d-none");
+            previewImage.src = "./Assets/default-avatar.png";
         } catch (error) {
             alert("Erro ao acessar a câmera: " + error.message);
         }
@@ -87,15 +118,19 @@ cameraButton.addEventListener("click", async () => {
     }
 });
 
+// Captura imagem da câmera
 captureButton.addEventListener("click", () => {
     const canvas = document.createElement("canvas");
     canvas.width = cameraPreview.videoWidth;
     canvas.height = cameraPreview.videoHeight;
     const context = canvas.getContext("2d");
     context.drawImage(cameraPreview, 0, 0, canvas.width, canvas.height);
-    previewImage.src = canvas.toDataURL("image/png");
-    previewImage.classList.remove("d-none"); // Exibe a imagem capturada
+    const dataUrl = canvas.toDataURL("image/png");
+    previewImage.src = dataUrl;
+    previewImage.classList.remove("d-none");
     stopCamera();
+
+    localStorage.setItem("imgDocumento", dataUrl); // salva no localStorage
 });
 
 // Função para desligar a câmera
@@ -105,5 +140,5 @@ function stopCamera() {
         cameraStream = null;
     }
     cameraContainer.classList.add("d-none");
-    previewImage.classList.remove("d-none"); // Restaura a imagem pré-visualizada
+    previewImage.classList.remove("d-none");
 }
