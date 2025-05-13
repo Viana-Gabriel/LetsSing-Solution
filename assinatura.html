@@ -35,7 +35,7 @@
                 </p>
                 <p>
                     <strong>Data de Assinatura:</strong>
-                    <span id="data-assinatura">30/04/2025</span>
+                    <span id="data-assinatura"></span>
                 </p>
 
                 <ul class="nav nav-tabs" id="signatureTab" role="tablist">
@@ -138,6 +138,19 @@
                 if (nome) {
                     nomeUsuario.textContent = nome;
                 }
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const span = document.getElementById("data-assinatura");
+
+                const hoje = new Date();
+                const dia = String(hoje.getDate()).padStart(2, "0");
+                const mes = String(hoje.getMonth() + 1).padStart(2, "0"); // Janeiro = 0
+                const ano = hoje.getFullYear();
+
+                const dataFormatada = `${dia}/${mes}/${ano}`;
+                span.textContent = dataFormatada;
             });
         </script>
     </body>
