@@ -17,78 +17,82 @@
             class="cabecalho d-flex align-items-center justify-content-between text-white px-3 py-2 text-center"
         >
             <div class="logo">
-                <img src="./Assets/logo.svg" alt="letsSing" />
+                <img src="./Assets/logo.svg" alt="LetsSign" class="img-fluid" />
             </div>
             <div class="user-logado">
                 <span>
-                    <p id="nome-usuario"></p>
+                    <p id="nome-usuario" class="mb-0"></p>
                 </span>
             </div>
         </header>
 
-        <main class="container my-5">
-            <section>
-                <h2>Vídeo de Reconhecimento</h2>
-                <p>
-                    Grave um vídeo rápido de 10 segundos para confirmar sua
-                    identidade. Não esqueça de permitir o acesso à sua câmera.
-                    Mostre seu rosto claramente e siga as instruções para
-                    garantir sua segurança.
-                </p>
+        <main class="container-fluid my-5 px-3">
+            <section class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-sm-12">
+                    <h2 class="text-center mb-4">Vídeo de Reconhecimento</h2>
+                    <p>
+                        Grave um vídeo rápido de 10 segundos para confirmar sua
+                        identidade. Não esqueça de permitir o acesso à sua
+                        câmera. Mostre seu rosto claramente e siga as instruções
+                        para garantir sua segurança.
+                    </p>
 
-                <ol>
-                    <li>
-                        Certifique-se de estar em um ambiente bem iluminado e
-                        sem objetos cobrindo seu rosto.
-                    </li>
-                    <li>
-                        Olhe diretamente para a câmera e mantenha seu rosto
-                        centralizado na tela.
-                    </li>
-                    <li>
-                        Durante a gravação, faça uma ação simples solicitada
-                        (por exemplo: pisque os olhos ou diga uma palavra
-                        específica).
-                    </li>
-                    <li>
-                        Evite filtros ou ajustes na câmera, garantindo a
-                        autenticidade do vídeo.
-                    </li>
-                </ol>
+                    <ol>
+                        <li>
+                            Certifique-se de estar em um ambiente bem iluminado
+                            e sem objetos cobrindo seu rosto.
+                        </li>
+                        <li>
+                            Olhe diretamente para a câmera e mantenha seu rosto
+                            centralizado na tela.
+                        </li>
+                        <li>
+                            Durante a gravação, faça uma ação simples solicitada
+                            (por exemplo: pisque os olhos ou diga uma palavra
+                            específica).
+                        </li>
+                        <li>
+                            Evite filtros ou ajustes na câmera, garantindo a
+                            autenticidade do vídeo.
+                        </li>
+                    </ol>
 
-                <p>
-                    <strong>Palavra Específica:</strong
-                    ><span id="randomWord"></span>
-                </p>
+                    <p>
+                        <strong>Palavra Específica:</strong
+                        ><span id="randomWord"></span>
+                    </p>
 
-                <div class="video-box" id="video-container">
-                    <video
-                        id="video"
-                        width="400"
-                        height="300"
-                        autoplay
-                        muted
-                    ></video>
-                    <div>
-                        <button
-                            class="btn btn-primary mt-3"
-                            id="startRecording"
-                        >
-                            Gravar Vídeo
-                        </button>
-                        <a href="./resumo.html">
+                    <div class="video-box" id="video-container">
+                        <video
+                            id="video"
+                            class="w-100"
+                            width="400"
+                            height="300"
+                            autoplay
+                            muted
+                        ></video>
+                        <div class="text-center mt-3">
                             <button
-                                class="btn btn-secondary mt-3"
-                                id="stopRecording"
-                                disabled
+                                class="btn btn-primary mt-3"
+                                id="startRecording"
                             >
-                                Parar Gravação
+                                Gravar Vídeo
                             </button>
-                        </a>
+                            <a href="./resumo.html">
+                                <button
+                                    class="btn btn-secondary mt-3"
+                                    id="stopRecording"
+                                    disabled
+                                >
+                                    Parar Gravação
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
+
         <footer class="w-100 text-center py-3">
             <p>&copy; 2025 LetsSign</p>
         </footer>
