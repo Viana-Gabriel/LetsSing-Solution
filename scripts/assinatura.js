@@ -29,20 +29,21 @@ document.getElementById("clearCanvas").addEventListener("click", () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
-document.getElementById("saveSignature").addEventListener("click", () => {
+document.getElementById("saveSignatureManual").addEventListener("click", () => {
     const manualSignature = canvas.toDataURL();
     alert("Assinatura Manual Salva!");
     localStorage.setItem("assinatura", manualSignature);
     console.log(manualSignature);
 });
 
+document
+    .getElementById("saveSignatureDigital")
+    .addEventListener("click", () => {
+        const digitalSignatureImage = canvas.toDataURL();
+        alert("Assinatura Digital Salva!");
+        localStorage.setItem("assinatura", digitalSignatureImage);
+        console.log(digitalSignatureImage);
+    });
 document.getElementById("clearDigital").addEventListener("click", () => {
     document.getElementById("digital-signature").value = "";
-});
-
-document.getElementById("saveSignature").addEventListener("click", () => {
-    const digitalSignatureImage = canvas.toDataURL();
-    alert("Assinatura Digital Salva!");
-    localStorage.setItem("assinatura", digitalSignatureImage);
-    console.log(digitalSignatureImage);
 });
