@@ -2,6 +2,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 let isDrawing = false;
 
+// Desenho manual
 canvas.addEventListener("mousedown", () => {
     isDrawing = true;
 });
@@ -30,20 +31,31 @@ document.getElementById("clearCanvas").addEventListener("click", () => {
 });
 
 document.getElementById("saveSignatureManual").addEventListener("click", () => {
-    const manualSignature = canvas.toDataURL();
+    const manualSignature = document.getElementById("canvas").toDataURL();
+    localStorage.setItem("assinatura_manual", manualSignature);
+    localStorage.removeItem("assinatura_digital");
     alert("Assinatura Manual Salva!");
-    localStorage.setItem("assinatura", manualSignature);
-    console.log(manualSignature);
+    window.location.href = "./video.html";
 });
 
 document
     .getElementById("saveSignatureDigital")
     .addEventListener("click", () => {
-        const digitalSignatureImage = canvas.toDataURL();
+        const digitalSignature = document
+            .getElementById("digital-signature")
+            .value.trim();
+
+        if (digitalSignature === "") {
+            alert("Digite sua assinatura digital antes de salvar.");
+            return;
+        }
+
+        localStorage.setItem("assinatura_digital", digitalSignature);
+        localStorage.removeItem("assinatura_manual");
         alert("Assinatura Digital Salva!");
-        localStorage.setItem("assinatura", digitalSignatureImage);
-        console.log(digitalSignatureImage);
+        window.location.href = "./video.html";
     });
+
 document.getElementById("clearDigital").addEventListener("click", () => {
     document.getElementById("digital-signature").value = "";
 });
