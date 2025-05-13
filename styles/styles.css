@@ -19,7 +19,7 @@
 }
 
 footer{
-  position: relative;
+  position: fixed;
   bottom: 0;
   background:var(--cor-segundaria);
   font-size: 20px;

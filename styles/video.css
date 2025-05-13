@@ -4,6 +4,7 @@ main{
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2rem 0;
 }
 .video-box {
   border-radius: 8px;
